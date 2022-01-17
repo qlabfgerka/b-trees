@@ -1,1 +1,24 @@
-<p>home works!</p>
+<div class="flexbox margin">
+  <div>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Insert</mat-label>
+      <input matInput type="number" placeholder="5" [(ngModel)]="key" />
+    </mat-form-field>
+    <div class="break"></div>
+    <div class="flexbox">
+      <button
+        mat-raised-button
+        color="accent"
+        (click)="insert(key)"
+        [disabled]="!key"
+      >
+        INSERT
+      </button>
+    </div>
+    <input
+      type="file"
+      class="file-upload"
+      (change)="openFile($event.target)"
+    />
+  </div>
+</div>
