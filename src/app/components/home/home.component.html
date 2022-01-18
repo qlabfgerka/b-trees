@@ -1,8 +1,24 @@
 <div class="flexbox margin">
-  <div id="graph"></div>
-  <div class="break"></div>
   <div>
     <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Enter degree</mat-label>
+      <input matInput type="number" placeholder="2" [(ngModel)]="degree" />
+    </mat-form-field>
+    <div class="break"></div>
+    <div class="flexbox">
+      <button
+        mat-raised-button
+        color="accent"
+        (click)="changeDegree(degree)"
+        [disabled]="!degree"
+      >
+        CHANGE DEGREE
+      </button>
+    </div>
+
+    <div class="break"></div>
+
+    <mat-form-field class="example-full-width margin-top" appearance="fill">
       <mat-label>Insert</mat-label>
       <input matInput type="number" placeholder="5" [(ngModel)]="key" />
     </mat-form-field>
@@ -12,11 +28,14 @@
         mat-raised-button
         color="accent"
         (click)="insert(key)"
-        [disabled]="!key"
+        [disabled]="!key || !degreeSet"
       >
         INSERT
       </button>
     </div>
-    <input type="file" class="file-upload" (change)="openFile($event.target)" />
+    <div class="break"></div>
+    <input type="file" class="margin-top" (change)="openFile($event.target)" [disabled]="!degreeSet"/>
   </div>
+  <div class="break"></div>
+  <div id="graph"></div>
 </div>
