@@ -33,8 +33,33 @@
         INSERT
       </button>
     </div>
+
     <div class="break"></div>
-    <input type="file" class="margin-top" (change)="openFile($event.target)" [disabled]="!degreeSet"/>
+
+    <mat-form-field class="example-full-width margin-top" appearance="fill">
+      <mat-label>Search</mat-label>
+      <input matInput type="number" placeholder="5" [(ngModel)]="key" />
+    </mat-form-field>
+    <div class="break"></div>
+    {{ found }}
+    <div class="break"></div>
+    <div class="flexbox">
+      <button
+        mat-raised-button
+        color="accent"
+        (click)="search(key)"
+        [disabled]="!key || !degreeSet"
+      >
+        SEARCH
+      </button>
+    </div>
+    <div class="break"></div>
+    <input
+      type="file"
+      class="margin-top"
+      (change)="openFile($event.target)"
+      [disabled]="!degreeSet"
+    />
   </div>
   <div class="break"></div>
   <div id="graph"></div>

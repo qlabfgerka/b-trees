@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   public array!: Array<number>;
   public interval!: any;
   public degreeSet: boolean = false;
+  public found: string = '';
 
   constructor(private readonly treeService: TreeService) {}
 
@@ -54,6 +55,12 @@ export class HomeComponent implements OnInit {
     this.text = '';
     this.displayTree(this.tree, 0, 0);
     this.drawNodes(this.tree, 0);
+  }
+
+  public search(key: number): void {
+    if (this.treeService.search(this.tree, key) == -1)
+      this.found = `${key} does not exist in the B-Tree.`;
+    else this.found = `${key} was found in the tree.`;
   }
 
   public async openFile(event: any): Promise<void> {
