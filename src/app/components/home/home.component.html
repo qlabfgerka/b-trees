@@ -1,4 +1,6 @@
 <div class="flexbox margin">
+  <div id="graph"></div>
+  <div class="break"></div>
   <div>
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Insert</mat-label>
@@ -15,10 +17,6 @@
         INSERT
       </button>
     </div>
-    <input
-      type="file"
-      class="file-upload"
-      (change)="openFile($event.target)"
-    />
+    <input type="file" class="file-upload" (change)="openFile($event.target)" />
   </div>
 </div>
